@@ -1,126 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-    Copyright (c) 2015, 2022 Oracle and/or its affiliates. All rights reserved.
-
-    This program and the accompanying materials are made available under the
-    terms of the Eclipse Public License v. 2.0, which is available at
-    http://www.eclipse.org/legal/epl-2.0.
-
-    This Source Code may also be made available under the following Secondary
-    Licenses when the conditions for such availability set forth in the
-    Eclipse Public License v. 2.0 are satisfied: GNU General Public License,
-    version 2 with the GNU Classpath Exception, which is available at
-    https://www.gnu.org/software/classpath/license.html.
-
-    SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
-
--->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <groupId>com.acem.spring</groupId>
+    <artifactId>acem-spring-demo</artifactId>
+    <version>1.0.0</version>
 
-    <parent>
-        <groupId>org.glassfish.jersey.examples</groupId>
-        <artifactId>webapp-example-parent</artifactId>
-        <relativePath>../webapp-example-parent/pom.xml</relativePath>
-        <version>3.1.0-M8</version>
-    </parent>
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <spring.version>5.3.12</spring.version>
+    </properties>
 
-    <!-- Use in the case when Jetty is not needed
-    <parent>
-        <groupId>org.glassfish.jersey.examples</groupId>
-        <artifactId>project</artifactId>
-        <version>3.1.0-M8</version>
-    </parent>
-    -->
-
-    <artifactId>jersey-example-java8-webapp</artifactId>
     <packaging>war</packaging>
-    <name>jersey-example-java8-webapp</name>
-
-    <description>Jersey (Java8) WebApp Example Archetype.</description>
+    <name>ACEM Spring App</name>
+    <description>ACEM Spring App</description>
 
     <dependencies>
         <dependency>
-            <groupId>org.glassfish.jersey.containers</groupId>
-            <artifactId>jersey-container-grizzly2-http</artifactId>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <!--spring-context is inside webmvc which provides us IOC container-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.glassfish.jersey.containers</groupId>
-            <artifactId>jersey-container-servlet</artifactId>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.glassfish.jersey.inject</groupId>
-            <artifactId>jersey-hk2</artifactId>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.31</version>
+        </dependency>
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.14.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.14.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+            <version>2.14.1</version>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <configuration>
-                    <mainClass>com.acem.spring.demo.App</mainClass>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <inherited>true</inherited>
-                <configuration>
-                    <source>11.0.2</source>
-                    <target>11.0.2</target>
-                    <showWarnings>false</showWarnings>
-                    <fork>false</fork>
-                </configuration>
-            </plugin>
-
-            <!-- Run the application using "mvn jetty:run" -->
-            <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <configuration>
-                    <scanIntervalSeconds>5</scanIntervalSeconds>
-                    <stopPort>9999</stopPort>
-                    <stopKey>STOP</stopKey>
-                    <webApp>
-                        <contextPath>/</contextPath>
-                        <webInfIncludeJarPattern>.*/.*jersey-[^/]\.jar$</webInfIncludeJarPattern>
-                    </webApp>
-                    <systemProperties>
-                        <systemProperty>
-                            <name>jetty.port</name>
-                            <value>${jersey.config.test.container.port}</value>
-                        </systemProperty>
-                    </systemProperties>
-                    <war>/home/jenkins/agent/workspace/Jersey_3x_release_pipeline/archetypes/jersey-example-java8-webapp/target/jersey-example-java8-webapp-3.1.0-M8.war</war>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-
-    <profiles>
-        <profile>
-            <id>pre-release</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>xml-maven-plugin</artifactId>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-assembly-plugin</artifactId>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
-
-    <properties>
-        <java.version>1.8</java.version>
-        <jersey.config.test.container.port>8080</jersey.config.test.container.port>
-    </properties>
 </project>

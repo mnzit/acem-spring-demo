@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="acem-spring-demo:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>acem-spring-demo</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="acem-spring-demo-1.0.0.war">
+      <element id="artifact" artifact-name="acem-spring-demo:war exploded" />
+    </root>
+  </artifact>
+</component>
