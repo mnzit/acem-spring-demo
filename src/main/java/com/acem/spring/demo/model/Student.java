@@ -1,11 +1,18 @@
 package com.acem.spring.demo.model;
+import javax.persistence.*;
 
-
+@Entity
+@Table(name = "STUDENTS")
 public class Student {
-
+    @Id
+    @Column(name="ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name="NAME", length=100, nullable = false, unique = true)
     private String name;
+    @Column(name="EMAIL", length=100, nullable = false, unique = true)
     private String email;
+    @Column(name="CONTACT_NO", length=100, nullable = false, unique = true)
     private String contactNo;
     public Student() {
     }
@@ -48,6 +55,7 @@ public class Student {
     public void setContactNo(String contactNo) {
         this.contactNo = contactNo;
     }
+
 
     @Override
     public String toString() {

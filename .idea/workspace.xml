@@ -10,8 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a0fe573-cbf3-4929-9f7d-fba03be73b00" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/acem_spring_demo_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/acem_spring_demo_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/acem/spring/demo/controller/StudentUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acem/spring/demo/controller/StudentUIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/acem/spring/demo/dao/StudentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acem/spring/demo/repository/StudentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/acem/spring/demo/dao/impl/StudentDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/acem/spring/demo/model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acem/spring/demo/model/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/acem/spring/demo/response/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acem/spring/demo/response/Response.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/acem/spring/demo/service/impl/StudentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/acem/spring/demo/service/impl/StudentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +68,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/manjitshakya/Desktop/acem-spring-demo/src/main/java/com/acem/spring/demo",
+    "last_opened_file_path": "/Users/manjitshakya/Desktop/acem-spring-demo/src/main/webapp/WEB-INF/views/students",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
@@ -70,6 +79,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/students" />
       <recent name="$PROJECT_DIR$/src/main/java/com/acem/spring/demo" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF" />
@@ -80,12 +90,18 @@
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.acem.spring.demo.util" />
       <recent name="com.acem.spring.demo.constant" />
       <recent name="com.acem.spring.demo.builder" />
       <recent name="com.acem.spring.demo.response" />
       <recent name="com.acem.spring.demo.model" />
-      <recent name="com.acem.spring.demo.dao" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="clean install" />
+      <command value="mvn clean install" />
+    </option>
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 9.0.55" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.55" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="11" nameIsGenerated="true">
@@ -190,7 +206,7 @@
       <workItem from="1669114417371" duration="128000" />
       <workItem from="1669114602039" duration="2466000" />
       <workItem from="1669131843021" duration="1376000" />
-      <workItem from="1669195280650" duration="3716000" />
+      <workItem from="1669195280650" duration="8725000" />
     </task>
     <servers />
   </component>

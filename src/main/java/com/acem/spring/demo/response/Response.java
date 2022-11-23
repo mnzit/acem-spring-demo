@@ -1,5 +1,6 @@
 package com.acem.spring.demo.response;
 
+import com.acem.spring.demo.util.JsonUtil;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.io.Serializable;
@@ -58,5 +59,10 @@ public class Response implements Serializable {
     public Response error(Object error) {
         this.error = error;
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return JsonUtil.toJson(this);
     }
 }
