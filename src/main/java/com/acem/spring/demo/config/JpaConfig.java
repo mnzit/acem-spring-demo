@@ -14,12 +14,13 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
 
+
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "com.acem.spring.demo.repository")
 @Configuration
 public class JpaConfig {
 
-    @Bean
+    @Bean(name="entityManagerFactory")
     public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(DataSource dataSource){
         System.out.println(dataSource);
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
@@ -32,10 +33,8 @@ public class JpaConfig {
         final HibernateJpaVendorAdapter hibernateJpaVendorAdapter = new HibernateJpaVendorAdapter();
         entityManagerFactoryBean.setJpaVendorAdapter(hibernateJpaVendorAdapter);
         entityManagerFactoryBean.setJpaProperties(jpaProperties());
-
         return entityManagerFactoryBean;
     }
-
 
     @Bean
     public PlatformTransactionManager transactionManager(final EntityManagerFactory entityManagerFactory){

@@ -49,7 +49,16 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Response getByEmailAddress(String emailAddress) {
-        return null;
+        Optional<Student> optionalStudent = studentRepository.findByEmail(emailAddress);
+        Response responseBody = null;
+        if (optionalStudent.isPresent()) {
+            Student student = optionalStudent.get();
+            responseBody = ResponseBuilder.success(ResponseMessageConstant.Student.ONE, student);
+
+        } else {
+            responseBody = ResponseBuilder.notFound(ResponseMessageConstant.Student.NOT_FOUND);
+        }
+        return responseBody;
     }
 
     @Override

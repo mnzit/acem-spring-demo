@@ -29,4 +29,10 @@ public class StudentUIController {
         model.addAttribute("response", studentService.getById(id));
         return new ModelAndView("students/one");
     }
+
+    @GetMapping("/email/{email}")
+    public ModelAndView student(@PathVariable("email") String email, Model model) {
+        model.addAttribute("response", studentService.getByEmailAddress(email));
+        return new ModelAndView("students/one");
+    }
 }
